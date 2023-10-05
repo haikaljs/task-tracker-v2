@@ -7,6 +7,7 @@ import "./App.css";
 // components
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -24,10 +25,12 @@ function App() {
     },
   ]);
 
+  // delete task
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
+  // toggle task reminder
   const toggleReminder = (id) => {
     setTasks(
       tasks.map((task) =>
@@ -36,9 +39,17 @@ function App() {
     );
   };
 
+  // add task
+  const addTask = (task) => {
+    const id = Math.floor(Math.random() * 1000 + 1);
+    const newTask = { id, ...task };
+    setTasks([...tasks, newTask]);
+  };
+
   return (
     <div className="container">
       <Header title="Task Tracker" />
+      <AddTask addTask={addTask} />
       {tasks && (
         <Tasks
           tasks={tasks}
