@@ -14,14 +14,19 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    const fetchTasks = async () => {
-      const response = await fetch("http://localhost:3000/tasks");
-      const data = await response.json();
-      setTasks(data);
+    const getTasks = async () => {
+      const taskFromServer = await fetchTasks();
+      setTasks(taskFromServer);
     };
 
-    fetchTasks();
+    getTasks();
   }, []);
+
+  const fetchTasks = async () => {
+    const response = await fetch("http://localhost:3000/tasks");
+    const data = await response.json();
+    return data;
+  };
 
   // delete task
   const deleteTask = async (id) => {
