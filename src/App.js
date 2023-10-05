@@ -10,6 +10,7 @@ import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
 
 function App() {
+  const [showAddTask, setShowAddTask] = useState(true);
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -48,9 +49,15 @@ function App() {
 
   return (
     <div className="container">
-      <Header title="Task Tracker" />
+      <Header
+        title="Task Tracker"
+        setShowAddTask={() => setShowAddTask((prevState) => !prevState)}
+        showAddTask={showAddTask}
+      />
+
       <AddTask addTask={addTask} />
-      {tasks && (
+
+      {showAddTask && tasks && (
         <Tasks
           tasks={tasks}
           deleteTask={deleteTask}

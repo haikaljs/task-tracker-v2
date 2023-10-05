@@ -1,13 +1,14 @@
 import Button from "./Button";
 
-export default function Header({ title }) {
-  const handleClick = () => {
-    console.log("click");
-  };
+export default function Header({ title, setShowAddTask, showAddTask }) {
   return (
     <header className="header">
       <h1 style={headingStyle}>{title}</h1>
-      <Button color="green" text="Add" onClick={handleClick} />
+      <Button
+        color={showAddTask ? "red" : "green"}
+        text={showAddTask ? "Close" : "Open"}
+        onClick={setShowAddTask}
+      />
     </header>
   );
 }
