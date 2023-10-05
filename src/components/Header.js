@@ -6,7 +6,7 @@ export default function Header({ title, setShowAddTask, showAddTask }) {
       <h1 style={headingStyle}>{title}</h1>
       <Button
         color={showAddTask ? "red" : "green"}
-        text={showAddTask ? "Close" : "Open"}
+        text={showAddTask ? "Close" : "Add"}
         onClick={setShowAddTask}
       />
     </header>
