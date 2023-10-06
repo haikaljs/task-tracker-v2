@@ -22,7 +22,7 @@
       "id": 4,
       "text": "Doctors Appointment",
       "day": "Feb 5th at 2:30pm",
-      "reminder": false
+      "reminder": true
     },
     {
       "id": 5,
@@ -34,7 +34,13 @@
       "id": 6,
       "text": "Doctors Appointment",
       "day": "Feb 5th at 2:30pm",
-      "reminder": false
+      "reminder": true
+    },
+    {
+      "text": "fdfdf",
+      "day": "fdff",
+      "reminder": true,
+      "id": 7
     }
   ]
 }
